@@ -1,31 +1,22 @@
 package uvsq21807481;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Stack;
 
 public class Interpreteur {
-
-    private final Map<String, Command> commands;
+    private Stack<Double> pile;
 
     private Interpreteur() {
-        this.commands = new HashMap<>();
+        this.pile = new Stack<Double>();
     }
 
-    public void addCommand(String name, Command command) {
-        this.commands.put(name, command);
+    public void exit() {
+        System.exit(0);
     }
 
-    public void executeCommand(String name) {
-        if (this.commands.containsKey(name)) {
-            this.commands.get(name).apply();
+    public void undo() {
+        if(this.pile.size() > 0) {
+            this.pile.pop();
         }
-    }
-
-    public static Interpreteur init() {
-        Interpreteur i = new Interpreteur();
-        //Command list
-        i.addCommand("quit", () -> System.exit(1));
-        return i;
     }
 
 }
