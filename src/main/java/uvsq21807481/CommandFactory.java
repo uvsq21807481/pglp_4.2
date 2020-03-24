@@ -24,6 +24,15 @@ public class CommandFactory {
         CommandFactory cf = new CommandFactory();
         cf.add("undo", new Undo(mrpn));
         cf.add("exit", new Exit(mrpn));
+        cf.add("save", new Enregistrement(mrpn, 0));
         return cf;
+    }
+
+    public void setVal(double val) {
+        Enregistrement save;
+        if(this.commands.containsKey("save")) {
+            save = (Enregistrement)this.commands.get("save");
+            save.enregistrerVal(val);
+        }
     }
 }
