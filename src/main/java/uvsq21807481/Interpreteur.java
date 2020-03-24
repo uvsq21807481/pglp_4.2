@@ -16,7 +16,7 @@ public class Interpreteur {
     }
 
     public void executeCommand(String name) {
-        if(this.commands.containsKey(name)) {
+        if (this.commands.containsKey(name)) {
             this.commands.get(name).apply();
         }
     }
@@ -24,7 +24,7 @@ public class Interpreteur {
     public static Interpreteur init() {
         Interpreteur i = new Interpreteur();
         //Command list
-
+        i.addCommand("quit", () -> System.exit(1));
         return i;
     }
 
