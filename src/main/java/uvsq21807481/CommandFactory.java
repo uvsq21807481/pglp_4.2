@@ -25,6 +25,7 @@ public class CommandFactory {
         cf.add("undo", new Undo(mrpn));
         cf.add("exit", new Exit(mrpn));
         cf.add("save", new Enregistrement(mrpn, 0));
+        cf.add("compute", new Calcul(mrpn, Operation.PLUS));
         return cf;
     }
 
@@ -33,6 +34,14 @@ public class CommandFactory {
         if(this.commands.containsKey("save")) {
             save = (Enregistrement)this.commands.get("save");
             save.enregistrerVal(val);
+        }
+    }
+
+    public void setOperation(Operation op) {
+        Calcul calcul;
+        if(this.commands.containsKey("compute")) {
+            calcul = (Calcul)this.commands.get("compute");
+            calcul.selectOperation(op);
         }
     }
 }
