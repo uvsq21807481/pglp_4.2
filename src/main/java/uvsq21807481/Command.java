@@ -4,5 +4,5 @@ package uvsq21807481;
 public interface Command {
 
     public void apply();
-    
+
 }
