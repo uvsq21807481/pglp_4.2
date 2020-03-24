@@ -3,9 +3,9 @@ package uvsq21807481;
 import java.util.Stack;
 
 public class Interpreteur {
-    private Stack<Double> pile;
+    public Stack<Double> pile;
 
-    private Interpreteur() {
+    public Interpreteur() {
         this.pile = new Stack<Double>();
     }
 
