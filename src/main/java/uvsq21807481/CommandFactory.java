@@ -26,6 +26,7 @@ public class CommandFactory {
         cf.add("exit", new Exit(mrpn));
         cf.add("save", new Enregistrement(mrpn, 0));
         cf.add("compute", new Calcul(mrpn, Operation.PLUS));
+        cf.add("list", new EnsembleOperandes(mrpn));
         return cf;
     }
 
